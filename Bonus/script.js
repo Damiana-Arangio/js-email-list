@@ -19,17 +19,18 @@ for (let i = 1; i <= 10; i++) {
     FUNZIONI 
 **************/
 
-// Funzione per generare email random
+// Funzione per generare 10 email random
 function generaEmail() {
 
     // Chiamata Ajax con Axios
     axios.get(endpointEmail)
         .then((rispostaApiSuccess) => {
-            const email = rispostaApiSuccess.data.response;         // Recupero email da api
+            const email = rispostaApiSuccess.data.response;                         // Recupero email da API
 
-            const nuovoLi = document.createElement("li");           // Creo tag <li> 
-            nuovoLi.textContent = email;                             // Inserisco email all'interno di <li>
-            listaEmail.appendChild(nuovoLi);                        // Appendo come ultimo figlio di <ul>
+            const nuovoLi = document.createElement("li");                           // Creo tag <li> 
+            nuovoLi.textContent = email;                                            // Inserisco email all'interno di <li>
+            nuovoLi.classList.add("list-group-item", "list-group-item-danger");    // Aggiungo classi (di Bootstrap) ad li
+            listaEmail.appendChild(nuovoLi);                                        // Appendo come ultimo figlio di <ul>
 
         })
 
